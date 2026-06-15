@@ -142,7 +142,7 @@ const scrollToSection = (id: string) => {
           </div>
           <div class="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
             <Button label="Mijn Journey" icon="pi pi-map" severity="success" size="large" @click="scrollToSection('journey')" class="!px-8 !py-4" />
-            <Button label="Contact" icon="pi pi-envelope" severity="secondary" size="large" outlined @click="scrollToSection('contact')" class="!px-8 !py-4" />
+            <Button label="Contact" icon="pi-envelope" severity="secondary" size="large" outlined @click="scrollToSection('contact')" class="!px-8 !py-4" />
           </div>
         </div>
       </div>
@@ -209,7 +209,7 @@ const scrollToSection = (id: string) => {
                         </span>
                         <div class="flex flex-wrap gap-2">
                           <span v-for="skill in project.skills.slice(0, 3)" :key="skill" class="bg-[#21262d] text-[#c9d1d9] px-3 py-1 rounded border border-[#30363d]">
-                            #{{ skill }}
+                            {{ skill }}
                           </span>
                         </div>
                       </div>
@@ -238,7 +238,7 @@ const scrollToSection = (id: string) => {
                         </span>
                         <div class="flex flex-wrap gap-2">
                           <span v-for="skill in project.skills.slice(0, 3)" :key="skill" class="bg-[#21262d] text-[#c9d1d9] px-3 py-1 rounded border border-[#30363d]">
-                            #{{ skill }}
+                            {{ skill }}
                           </span>
                         </div>
                       </div>
