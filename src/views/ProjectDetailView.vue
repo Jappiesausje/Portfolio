@@ -36,6 +36,26 @@ const getLanguageColor = (lang: string) => {
     default: return 'bg-emerald-400'
   }
 }
+
+const languageBreakdown = computed(() => {
+  if (project.value?.id === 'vue-ci-cd') {
+    return [
+      { name: 'Vue', percentage: 87.2, color: 'bg-amber-400' },
+      { name: 'CSS', percentage: 5.2, color: 'bg-blue-500' },
+      { name: 'TypeScript', percentage: 4.2, color: 'bg-blue-500' },
+      { name: 'JavaScript', percentage: 1.4, color: 'bg-yellow-400' },
+      { name: 'Other', percentage: 2.0, color: 'bg-gray-400' }
+    ];
+  }
+  return [];
+});
+
+const otherTechnologies = computed(() => {
+  if (project.value?.id === 'vue-ci-cd') {
+    return ['GitHub Actions', 'Docker', 'Nginx', 'CI/CD', 'SSH', 'VPS'];
+  }
+  return [];
+});
 </script>
 
 <template>
@@ -129,7 +149,29 @@ const getLanguageColor = (lang: string) => {
 
           <div class="pt-6 border-t border-[#30363d] space-y-4">
             <h3 class="font-bold text-sm uppercase tracking-widest text-[#8b949e]">Techniek</h3>
-            <div class="space-y-4">
+            <div v-if="project?.id === 'vue-ci-cd'" class="space-y-4">
+              <div class="w-full h-2 rounded-full bg-[#0d1117] overflow-hidden flex">
+                <div v-for="lang in languageBreakdown" :key="lang.name" :class="[lang.color, 'h-full']" :style="{ width: lang.percentage + '%' }"></div>
+              </div>
+              <div class="space-y-2">
+                <div v-for="lang in languageBreakdown" :key="lang.name" class="flex items-center justify-between text-xs">
+                  <div class="flex items-center gap-2">
+                    <span :class="[lang.color, 'w-3 h-3 rounded-full']"></span>
+                    <span class="text-[#f0f6fc] font-bold">{{ lang.name }}</span>
+                  </div>
+                  <span class="text-[#8b949e] font-mono">{{ lang.percentage }}%</span>
+                </div>
+              </div>
+              <div class="pt-4 border-t border-[#30363d] space-y-2">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-[#8b949e]">Gebruikte Tools & Concepten:</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span v-for="tech in otherTechnologies" :key="tech" class="bg-[#21262d] text-[#c9d1d9] px-2 py-0.5 rounded text-[10px] font-mono">
+                    {{ tech }}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div v-else class="space-y-4">
               <div class="w-full h-2 rounded-full bg-[#0d1117] overflow-hidden flex">
                 <div :class="[getLanguageColor(project.language), 'h-full w-full']"></div>
               </div>
