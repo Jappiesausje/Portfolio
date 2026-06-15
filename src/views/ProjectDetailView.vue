@@ -98,7 +98,7 @@ const getLanguageColor = (lang: string) => {
       <div class="lg:w-80 shrink-0 space-y-6">
         <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 space-y-6 shadow-xl">
           <div class="space-y-4">
-            <h3 class="text-[#f0f6fc] font-bold text-sm uppercase tracking-widest text-[#8b949e]">Over dit project</h3>
+            <h3 class="font-bold text-sm uppercase tracking-widest text-[#8b949e]">Over dit project</h3>
             <p class="text-sm text-[#8b949e] leading-relaxed">
               {{ project.shortDescription }}
             </p>
@@ -111,7 +111,7 @@ const getLanguageColor = (lang: string) => {
           </div>
 
           <div class="pt-6 border-t border-[#30363d] space-y-4">
-            <h3 class="text-[#f0f6fc] font-bold text-sm uppercase tracking-widest text-[#8b949e]">Links</h3>
+            <h3 class="font-bold text-sm uppercase tracking-widest text-[#8b949e]">Links</h3>
             <div class="space-y-3">
               <a v-if="project.githubUrl" :href="project.githubUrl" target="_blank" class="flex items-center justify-between p-3 rounded-lg bg-[#21262d] border border-[#30363d] text-[#f0f6fc] hover:border-emerald-500/50 hover:text-emerald-400 transition-all group">
                 <div class="flex items-center gap-3">
@@ -128,7 +128,7 @@ const getLanguageColor = (lang: string) => {
           </div>
 
           <div class="pt-6 border-t border-[#30363d] space-y-4">
-            <h3 class="text-[#f0f6fc] font-bold text-sm uppercase tracking-widest text-[#8b949e]">Techniek</h3>
+            <h3 class="font-bold text-sm uppercase tracking-widest text-[#8b949e]">Techniek</h3>
             <div class="space-y-4">
               <div class="w-full h-2 rounded-full bg-[#0d1117] overflow-hidden flex">
                 <div :class="[getLanguageColor(project.language), 'h-full w-full']"></div>
