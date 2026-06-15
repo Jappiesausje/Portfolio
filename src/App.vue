@@ -78,8 +78,8 @@ const scrollToSection = async (id: string) => {
           <span class="font-medium">© 2026 Jasper de Waal</span>
         </div>
         <div class="flex space-x-8 font-mono text-[10px] uppercase tracking-[0.2em]">
-          <a href="https://github.com/jouwgithub" target="_blank" class="hover:text-emerald-400 transition-colors">GitHub</a>
-          <a href="https://linkedin.com/in/jouwprofiel" target="_blank" class="hover:text-emerald-400 transition-colors">LinkedIn</a>
+          <a href="https://github.com/Jappiesausje" target="_blank" class="hover:text-emerald-400 transition-colors">GitHub</a>
+          <a href="https://www.linkedin.com/in/jasper-de-waal-83519a2b7/" target="_blank" class="hover:text-emerald-400 transition-colors">LinkedIn</a>
         </div>
       </div>
     </footer>
