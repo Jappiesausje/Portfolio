@@ -1,0 +1,268 @@
+[
+  {
+    "id": "microbit",
+    "title": "Micro-Bit",
+    "chapter": 1,
+    "year": "2014-2018",
+    "type": "Hobby",
+    "language": "Scratch/Blockly",
+    "skills": ["Hardware", "Logica"],
+    "opensource": false,
+    "shortDescription": "Mijn eerste ervaring met hardware. Een kleine computer waarmee ik simpele spelletjes maakte.",
+    "longDescription": "Ik kreeg een Micro-Bit, een klein printplaatje met een schermpje en knoppen. Hiermee deed ik mijn eerste kleine projectjes. Een van de leukste was een soort ruimteschip spel waarbij je kometen moest ontwijken door de Micro-Bit te kantelen.",
+    "learningOutcomes": [
+      "De basis van logica begrijpen",
+      "Werken met bewegingssensoren in hardware",
+      "Simpele spel-mechanieken bouwen"
+    ],
+    "githubUrl": "",
+    "images": []
+  },
+  {
+    "id": "giftcard-tool",
+    "title": "Giftcard Generatie Tool",
+    "chapter": 2,
+    "year": "2019",
+    "type": "Hobby",
+    "language": "Python",
+    "skills": ["Python", "API"],
+    "opensource": true,
+    "shortDescription": "Een simpele tool die probeerde te kijken of willekeurige codes geldig waren als giftcard.",
+    "longDescription": "Vroeger dacht ik dat het mogelijk was om giftcards te genereren. Ik maakte een tool die een random string maakte en deze naar de API van Amazon of cadeaubon.nl stuurde om te checken of de code geldig was. Hoewel het natuurlijk niet echt werkte, was het een goede manier om te leren werken met API's en random strings.",
+    "learningOutcomes": [
+      "Werken met externe API's in Python",
+      "Genereren van willekeurige strings",
+      "Basis van HTTP requests"
+    ],
+    "githubUrl": "",
+    "images": []
+  },
+  {
+    "id": "gta-macro",
+    "title": "GTA Macro Tool",
+    "chapter": 2,
+    "year": "2019",
+    "type": "Hobby",
+    "language": "Python",
+    "skills": ["Python", "Automatisering"],
+    "opensource": true,
+    "shortDescription": "Een macro die automatisch handelingen in het GTA casino uitvoerde.",
+    "longDescription": "In GTA was er een hack voor het casino waarbij je gegarandeerd de jackpot kreeg, maar je moest dit steeds handmatig aan- en uitzetten om niet geband te worden. Dit was veel werk, dus ik schreef een Python tool die dit volledig automatisch voor me deed. Ik kon invullen hoeveel geld ik wilde en de tool deed de rest.",
+    "learningOutcomes": [
+      "Macro's schrijven met Python",
+      "Automatisering van handmatige taken",
+      "Input simulatie in Windows"
+    ],
+    "githubUrl": "",
+    "images": []
+  },
+  {
+    "id": "discord-bot-python",
+    "title": "Mijn eerste Discord Bot",
+    "chapter": 2,
+    "year": "2019-2020",
+    "type": "Hobby",
+    "language": "Python",
+    "skills": ["Python", "discord.py", "API"],
+    "opensource": true,
+    "shortDescription": "Leren werken met de discord.py library door simpele spelletjes te bouwen.",
+    "longDescription": "Ik begon met het leren van de discord.py library. Ik maakte verschillende kleine en simpele spelletjes om de library onder de knie te krijgen. Hierdoor leerde ik werken met API's, asynchroon programmeren, classes en inheritance.",
+    "learningOutcomes": [
+      "Werken met de discord.py library",
+      "Asynchroon programmeren in Python",
+      "Object-georiënteerd programmeren (classes & inheritance)"
+    ],
+    "githubUrl": "",
+    "images": []
+  },
+  {
+    "id": "pygame-collection",
+    "title": "Snake & Pong in Python",
+    "chapter": 2,
+    "year": "2019",
+    "type": "Hobby",
+    "language": "Python",
+    "skills": ["Pygame", "Logica"],
+    "opensource": true,
+    "shortDescription": "Klassieke spelletjes gebouwd met de Pygame library.",
+    "longDescription": "Ik heb Snake en Pong nagebouwd aan de hand van tutorials om te leren werken met Pygame, een bekende game maker library voor Python. Het was interessant om te zien hoe game-logica werkt, maar ik merkte hierdoor ook dat ik later niet echt de game-dev kant op wil gaan; ik vond de projecten met Pygame niet heel leuk.",
+    "learningOutcomes": [
+      "Basis van de Pygame library",
+      "Game-logica en loops begrijpen",
+      "Ontdekken welke tech-richtingen ik wel en niet leuk vind"
+    ],
+    "githubUrl": "",
+    "images": []
+  },
+  {
+    "id": "django-practice",
+    "title": "Django Framework Oefening",
+    "chapter": 2,
+    "year": "2022",
+    "type": "Hobby",
+    "language": "Python",
+    "skills": ["Django", "Web Development"],
+    "opensource": true,
+    "shortDescription": "De basis van web development ontdekken met het Django framework.",
+    "longDescription": "Ik heb geoefend met het Django framework voor web development om te kijken hoe dit werkte. Ik heb er niet veel mee gemaakt behalve het volgen van een paar tutorials, maar het gaf me een goed beeld van hoe backend web development in elkaar zit.",
+    "learningOutcomes": [
+      "De basis van het Django framework",
+      "Begrijpen van het MVC/MVT patroon",
+      "Basis van routing en templates"
+    ],
+    "githubUrl": "",
+    "images": []
+  },
+  {
+    "id": "zermelo-automation",
+    "title": "Zermelo Project",
+    "chapter": 3,
+    "year": "2021",
+    "type": "Hobby",
+    "language": "Python",
+    "skills": ["Python", "API", "Security"],
+    "opensource": false,
+    "shortDescription": "Een tool die via de Zermelo API keek welke leerlingen hun standaard wachtwoord nog niet hadden aangepast.",
+    "longDescription": "Op de middelbare school hadden we flex-uren die vaak vol zaten. Ik wist dat veel mensen hun standaard wachtwoord nooit veranderden. Ik maakte een tool die via de Zermelo API checkte per leerling of hun wachtwoord nog op de standaard stond. Hiermee kon ik inloggen op die accounts om hun flex-uren uit te schrijven, zodat ik zelf plek had. Niet erg ethisch, maar wel een leerzame ervaring.",
+    "learningOutcomes": [
+      "Interacteren met de Zermelo API",
+      "Het belang van sterke wachtwoorden in de praktijk zien",
+      "Data verzamelen en opslaan in een lijst"
+    ],
+    "githubUrl": "",
+    "images": []
+  },
+  {
+    "id": "hay-day-bot",
+    "title": "Hay Day Automatisering",
+    "chapter": 3,
+    "year": "2021",
+    "type": "Hobby",
+    "language": "Python",
+    "skills": ["OpenCV", "Beeldherkenning"],
+    "opensource": false,
+    "shortDescription": "Een geavanceerde macro die beeldherkenning gebruikt om een boerderij-spel te automatiseren.",
+    "longDescription": "Dit was een meer geavanceerde versie van mijn eerdere macro's, maar dan voor Hay Day. Op basis van image recognition in de game zelf moest de bot handelingen uitvoeren: graanvelden zoeken, oogsten als ze klaar waren en weer opnieuw planten. Het geoogste graan werd dan meteen in de marktkraam verkocht.",
+    "learningOutcomes": [
+      "Beeldherkenning toepassen in games (OpenCV)",
+      "Logica bouwen voor oneindige game-cycles",
+      "Automatisering op basis van visuele input"
+    ],
+    "githubUrl": "",
+    "images": []
+  },
+  {
+    "id": "epicyouth-bots",
+    "title": "Discord Bots voor EpicYouth",
+    "chapter": 3,
+    "year": "2021-2022",
+    "type": "Vrijwilligerswerk",
+    "language": "Python",
+    "skills": ["Python", "Web Scraping", "discord.py"],
+    "opensource": false,
+    "shortDescription": "Slimme bots voor een jongerenstichting om toernooien en rollen in Discord makkelijker te beheren.",
+    "longDescription": "Bij EpicYouth zag ik dat het voor spelers soms lastig was om op de hoogte te blijven van toernooien. Ik bouwde bots die de website scrapten en toernooi-info in een mooi format direct in Discord zetten. Hiermee konden mensen ook makkelijker de juiste rollen kiezen via de post zelf. Dit is een van de vele oplossingen die ik daar heb gebouwd om processen binnen de organisatie soepeler te laten lopen.",
+    "learningOutcomes": [
+      "Web scraping toepassen om data van websites te halen",
+      "Discord UI (buttons/dropdowns) gebruiken voor een betere UX",
+      "Meerdere bots tegelijk draaien en onderhouden voor een organisatie"
+    ],
+    "githubUrl": "",
+    "images": []
+  },
+  {
+    "id": "bestbot",
+    "title": "BestBot",
+    "chapter": 3,
+    "year": "2022",
+    "type": "Hobby",
+    "language": "Python",
+    "skills": ["Django", "RabbitMQ", "Blockly"],
+    "opensource": true,
+    "shortDescription": "Een ambitieus project om Discord bots te bouwen via een visueel dashboard met blokken.",
+    "longDescription": "Dit was een groot project, eigenlijk iets te groot voor wat ik toen kon. Het idee was een Discord bot met een online dashboard (Django) dat gebruik maakte van Blockly (zoals Scratch). Je zou dan bots kunnen bouwen met blokken. De bot en het dashboard werkten samen via RabbitMQ. Ik liep vast op het maken van complexe getters en setters in Blockly, en stopte uiteindelijk omdat er een andere bot uitkwam die dit ook al deed.",
+    "learningOutcomes": [
+      "Integratie van verschillende systemen (Django & RabbitMQ)",
+      "Werken met de Blockly library",
+      "Leren wanneer een project te complex wordt"
+    ],
+    "githubUrl": "",
+    "images": []
+  },
+  {
+    "id": "dhl-route-tool",
+    "title": "DHL Route Tool",
+    "chapter": 4,
+    "year": "2024",
+    "type": "Werk",
+    "language": "TypeScript",
+    "skills": ["TypeScript", "API", "Discord Bot"],
+    "opensource": false,
+    "shortDescription": "Een tool die de optimale route berekent voor pakketpunten en deze via Discord doorgeeft.",
+    "longDescription": "Dit is een tool die data van servicepunten uit een API haalt. Op basis van die data en mijn locatie kijkt de tool wat de meest efficiënte route is om zoveel mogelijk pakketten op te halen. Ik heb dit gekoppeld aan een Discord bot, zodat ik de tool tijdens werk makkelijk vanaf mijn telefoon kan gebruiken.",
+    "learningOutcomes": [
+      "Route-optimalisatie op basis van API data",
+      "Koppelen van tools aan een mobiele interface (Discord)",
+      "Praktische toepassing van code in mijn werk"
+    ],
+    "githubUrl": "",
+    "images": []
+  },
+  {
+    "id": "youtube-pipeline",
+    "title": "YouTube Data Pipeline",
+    "chapter": 4,
+    "year": "2024",
+    "type": "School",
+    "language": "Python",
+    "skills": ["Docker", "GitLab CI/CD", "AI"],
+    "opensource": true,
+    "shortDescription": "Een data pipeline die YouTube audio transcribeert en sentiment analyseert.",
+    "longDescription": "Dit schoolproject haalt data van YouTube, zet de audio om naar tekst met AI (Whisper) en kijkt of de reacties positief zijn. Het draait automatisch in Docker via een CI/CD workflow in GitLab.",
+    "learningOutcomes": [
+      "Werken met Docker en CI/CD workflows",
+      "AI audio-transcritpie integreren",
+      "Sentiment analyse uitvoeren op tekstdata"
+    ],
+    "githubUrl": "",
+    "images": []
+  },
+  {
+    "id": "fullstack-ecommerce",
+    "title": "Full-Stack Webshop",
+    "chapter": 4,
+    "year": "2024",
+    "type": "School",
+    "language": "Java",
+    "skills": ["Spring Boot", "REST API", "Angular"],
+    "opensource": false,
+    "shortDescription": "Een complete webshop om te leren hoe backend en frontend samenwerken.",
+    "longDescription": "Voor dit schoolproject bouwden we een webshop met Spring Boot (Java) en Angular. Het was mijn eerste ervaring met een groot full-stack systeem waarin alles van database tot de frontend samenzat.",
+    "learningOutcomes": [
+      "Backend development met Spring Boot",
+      "Frontend development met Angular",
+      "REST API's bouwen en gebruiken"
+    ],
+    "githubUrl": "",
+    "images": []
+  },
+  {
+    "id": "embedded-maze",
+    "title": "Raspberry Pi Doolhof",
+    "chapter": 4,
+    "year": "2024",
+    "type": "School",
+    "language": "Python",
+    "skills": ["Embedded", "Raspberry Pi", "Hardware"],
+    "opensource": false,
+    "shortDescription": "Een doolhof game bestuurd via fysieke knoppen op een Raspberry Pi.",
+    "longDescription": "Voor het vak Embedded Systems bouwde ik een doolhof game. In plaats van een toetsenbord gebruik je echte fysieke knoppen aangesloten op de Raspberry Pi. Het was interessant om te zien hoe code direct invloed heeft op hardware, en dit project heb ik volledig in Python geschreven.",
+    "learningOutcomes": [
+      "Hardware aansluiten via GPIO",
+      "Python gebruiken voor hardware-aansturing",
+      "Remote management via SSH"
+    ],
+    "githubUrl": "",
+    "images": []
+  }
+]
