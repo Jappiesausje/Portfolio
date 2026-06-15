@@ -129,7 +129,7 @@ const scrollToSection = (id: string) => {
           </div>
           <div class="space-y-4">
             <p class="text-xl md:text-3xl text-[#c9d1d9] leading-tight max-w-2xl font-medium">
-              Ik ben een 18-jarige student met een passie voor techniek en code.
+              Ik ben een 19-jarige student met een passie voor techniek en code.
             </p>
             <p class="text-lg text-[#8b949e] leading-relaxed max-w-2xl">
               Ik studeer aan de Hogeschool Leiden en ben elke dag bezig om nieuwe dingen te leren. Of het nu gaat om het schrijven van scripts of het ontdekken van hoe systemen werken: ik duik er graag in.
