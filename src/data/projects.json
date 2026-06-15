@@ -9,7 +9,7 @@
     "skills": ["Hardware", "Logica"],
     "opensource": false,
     "shortDescription": "Mijn eerste ervaring met hardware. Een kleine computer waarmee ik simpele spelletjes maakte.",
-    "longDescription": "Ik kreeg een Micro-Bit, een klein printplaatje met een schermpje en knoppen. Hiermee deed ik mijn eerste kleine projectjes. Een van de leukste was een soort ruimteschip spel waarbij je kometen moest ontwijken door de Micro-Bit te kantelen.",
+    "longDescription": "Ik kreeg een Micro-Bit, een klein printplaatje met een schermpje en knoppen. Hiermee deed ik mijn eerste kleine projectjes. Een van de leukste was een soort ruimteschip spel waarbij je kometen moest ontwijken door de knoppen te gebruiken.",
     "learningOutcomes": [
       "De basis van logica begrijpen",
       "Werken met bewegingssensoren in hardware",
@@ -161,7 +161,7 @@
     "skills": ["Python", "Web Scraping", "discord.py"],
     "opensource": false,
     "shortDescription": "Slimme bots voor een jongerenstichting om toernooien en rollen in Discord makkelijker te beheren.",
-    "longDescription": "Bij EpicYouth zag ik dat het voor spelers soms lastig was om op de hoogte te blijven van toernooien. Ik bouwde bots die de website scrapten en toernooi-info in een mooi format direct in Discord zetten. Hiermee konden mensen ook makkelijker de juiste rollen kiezen via de post zelf. Dit is een van de vele oplossingen die ik daar heb gebouwd om processen binnen de organisatie soepeler te laten lopen.",
+    "longDescription": "Bij EpicYouth zag ik dat het voor spelers soms lastig was om op de hoogte te blijven van toernooien. Ik bouwde bots die de website verzamelden en toernooi-info in een mooi format direct in Discord zetten. Hiermee konden mensen ook makkelijker de juiste rollen kiezen via de post zelf. Dit is een van de vele oplossingen die ik daar heb gebouwd om processen binnen de organisatie soepeler te laten lopen.",
     "learningOutcomes": [
       "Web scraping toepassen om data van websites te halen",
       "Discord UI (buttons/dropdowns) gebruiken voor een betere UX",
@@ -195,8 +195,8 @@
     "chapter": 4,
     "year": "2024",
     "type": "Werk",
-    "language": "TypeScript",
-    "skills": ["TypeScript", "API", "Discord Bot"],
+    "language": "Python",
+    "skills": ["Python", "API", "Discord Bot"],
     "opensource": false,
     "shortDescription": "Een tool die de optimale route berekent voor pakketpunten en deze via Discord doorgeeft.",
     "longDescription": "Dit is een tool die data van servicepunten uit een API haalt. Op basis van die data en mijn locatie kijkt de tool wat de meest efficiënte route is om zoveel mogelijk pakketten op te halen. Ik heb dit gekoppeld aan een Discord bot, zodat ik de tool tijdens werk makkelijk vanaf mijn telefoon kan gebruiken.",
@@ -261,6 +261,27 @@
       "Hardware aansluiten via GPIO",
       "Python gebruiken voor hardware-aansturing",
       "Remote management via SSH"
+    ],
+    "githubUrl": "",
+    "images": []
+  },
+  {
+    "id": "vue-ci-cd",
+    "title": "Portfolio Website & CI/CD",
+    "chapter": 4,
+    "year": "2024",
+    "type": "School",
+    "language": "Vue",
+    "skills": ["Vue.js", "Docker", "CI/CD", "Nginx", "GitHub Actions", "SSH", "VPS"],
+    "opensource": false,
+    "shortDescription": "Deze responsive portfolio-website, gebouwd met Vue.js, is live gezet via een geautomatiseerde CI/CD pipeline.",
+    "longDescription": "Het doel was om een responsive portfolio-website te bouwen en deze via een volledig geautomatiseerde, push-based CI/CD-straat live te zetten op een eigen VPS. De frontend is gebouwd met Vue.js en Vite. Ik heb een multi-stage Dockerfile geschreven om de app efficiënt te serveren met Nginx. De CI/CD pipeline, opgezet met GitHub Actions, triggert automatisch bij elke push naar de main branch. Gevoelige gegevens zijn veilig opgeslagen in GitHub Encrypted Secrets, en de deployment gebeurt via SSH naar een Hetzner VPS. Dit project toont mijn vaardigheden in moderne webdevelopment en DevOps-praktijken.",
+    "learningOutcomes": [
+      "Bouwen van een moderne frontend met Vue.js en Vite",
+      "Multi-stage Dockerfiles schrijven voor efficiënte containerisatie",
+      "Geautomatiseerde CI/CD pipelines opzetten met GitHub Actions",
+      "Veilige deployment via SSH naar een VPS",
+      "Werken met Nginx en Docker Compose voor webapplicaties"
     ],
     "githubUrl": "",
     "images": []
