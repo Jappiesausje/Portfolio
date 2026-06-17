@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import projectsData from '../data/projects.json'
 import Button from 'primevue/button'
@@ -15,8 +15,9 @@ interface Project {
   longDescription: string
   learningOutcomes: string[]
   githubUrl: string
-  images: string[]
+  githubUrls?: string[]
   liveDemoUrl?: string
+  images: string[]
 }
 
 const props = defineProps<{
@@ -24,26 +25,6 @@ const props = defineProps<{
 }>()
 
 const project = computed(() => (projectsData as Project[]).find(p => p.id === props.id))
-
-// State voor de waarschuwingspopup
-const showWarningModal = ref(false)
-
-// Intercept-functie voor de Live Demo knop
-const handleDemoClick = () => {
-  if (project.value?.id === 'embedded-maze') {
-    showWarningModal.value = true
-  } else if (project.value?.liveDemoUrl) {
-    window.open(project.value.liveDemoUrl, '_blank', 'noopener,noreferrer')
-  }
-}
-
-// Uitvoeren van redirect na akkoord in de popup
-const confirmDemo = () => {
-  if (project.value?.liveDemoUrl) {
-    window.open(project.value.liveDemoUrl, '_blank', 'noopener,noreferrer')
-  }
-  showWarningModal.value = false
-}
 
 const getLanguageColor = (lang: string) => {
   switch (lang) {
@@ -102,9 +83,17 @@ const otherTechnologies = computed(() => {
 
           <div class="p-6 md:p-10 space-y-10">
             <section>
-              <h1 class="text-3xl md:text-5xl font-black text-[#f0f6fc] mb-4 border-b border-[#30363d] pb-4 tracking-tight">
+              <h1 class="text-3xl md:text-5xl font-black text-[#f0f6fc] mb-6 border-b border-[#30363d] pb-4 tracking-tight">
                 {{ project.title }}
               </h1>
+
+              <div v-if="project.id === 'embedded-maze'" class="mb-6 flex items-start gap-3 p-4 bg-[#1f293d] border border-[#388bfd]/30 rounded-lg text-[#58a6ff]">
+                <i class="pi pi-info-circle text-base mt-0.5 shrink-0"></i>
+                <div class="text-sm font-sans">
+                  <span class="font-bold font-mono text-xs uppercase tracking-wider block mb-1">Studie Project</span>
+                  Dit project is gemaakt tijdens mijn eerste studiejaar van de HBO-ICT opleiding.
+                </div>
+              </div>
 
               <p class="text-[#c9d1d9] leading-relaxed text-lg md:text-xl">
                 {{ project.longDescription }}
@@ -151,23 +140,40 @@ const otherTechnologies = computed(() => {
           <div class="pt-6 border-t border-[#30363d] space-y-4">
             <h3 class="font-bold text-sm uppercase tracking-widest text-[#8b949e]">Links</h3>
             <div class="space-y-3">
-              <button v-if="project.liveDemoUrl" @click="handleDemoClick" class="w-full flex items-center justify-between p-3 rounded-lg bg-emerald-500 text-[#0d1117] border border-emerald-400 hover:bg-emerald-400 transition-all group font-bold shadow-xl shadow-emerald-500/10 cursor-pointer text-left">
+              <a v-if="project.liveDemoUrl" :href="project.liveDemoUrl" target="_blank" class="flex items-center justify-between p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 transition-all group">
                 <div class="flex items-center gap-3">
-                  <i class="pi pi-external-link text-lg"></i>
-                  <span class="text-sm font-bold">Bekijk Live Demo</span>
-                </div>
-                <i class="pi pi-arrow-up-right text-xs"></i>
-              </button>
-
-              <a v-if="project.githubUrl" :href="project.githubUrl" target="_blank" class="flex items-center justify-between p-3 rounded-lg bg-[#21262d] border border-[#30363d] text-[#f0f6fc] hover:border-emerald-500/50 hover:text-emerald-400 transition-all group">
-                <div class="flex items-center gap-3">
-                  <i class="pi pi-github text-lg"></i>
-                  <span class="text-sm font-semibold">GitHub Repo</span>
+                  <i class="pi pi-desktop text-base"></i>
+                  <span class="text-sm font-semibold">Live Demo</span>
                 </div>
                 <i class="pi pi-external-link text-xs opacity-50 group-hover:opacity-100"></i>
               </a>
 
-              <div v-if="!project.liveDemoUrl && !project.githubUrl" class="flex items-center gap-3 p-3 rounded-lg bg-[#0d1117] border border-[#30363d] text-[#8b949e] cursor-not-allowed opacity-60">
+              <template v-if="project.githubUrls && project.githubUrls.length > 0">
+                <a v-for="(url, index) in project.githubUrls" :key="url" :href="url" target="_blank" class="flex items-center justify-between p-3 rounded-lg bg-[#21262d] border border-[#30363d] text-[#f0f6fc] hover:border-emerald-500/50 hover:text-emerald-400 transition-all group">
+                  <div class="flex items-center gap-3">
+                    <i class="pi pi-github text-lg"></i>
+                    <span class="text-sm font-semibold">GitHub Repo {{ index + 1 }}</span>
+                  </div>
+                  <i class="pi pi-external-link text-xs opacity-50 group-hover:opacity-100"></i>
+                </a>
+              </template>
+
+              <template v-else-if="project.githubUrl">
+                <a :href="project.githubUrl" target="_blank" class="flex items-center justify-between p-3 rounded-lg bg-[#21262d] border border-[#30363d] text-[#f0f6fc] hover:border-emerald-500/50 hover:text-emerald-400 transition-all group">
+                  <div class="flex items-center gap-3">
+                    <i class="pi pi-github text-lg"></i>
+                    <span class="text-sm font-semibold">GitHub Repo</span>
+                  </div>
+                  <i class="pi pi-external-link text-xs opacity-50 group-hover:opacity-100"></i>
+                </a>
+              </template>
+
+              <div v-else-if="project.opensource" class="flex items-center gap-3 p-3 rounded-lg bg-[#161b22] border border-dashed border-[#30363d] text-[#8b949e]">
+                <i class="pi pi-github text-sm"></i>
+                <span class="text-sm font-semibold">Public Code (Binnenkort online)</span>
+              </div>
+
+              <div v-else class="flex items-center gap-3 p-3 rounded-lg bg-[#0d1117] border border-[#30363d] text-[#8b949e] cursor-not-allowed opacity-60">
                 <i class="pi pi-lock text-sm"></i>
                 <span class="text-sm font-semibold">Private Code</span>
               </div>
@@ -225,22 +231,6 @@ const otherTechnologies = computed(() => {
               </span>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div v-if="showWarningModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm transition-all">
-      <div class="bg-[#161b22] border border-[#30363d] rounded-2xl max-w-md w-full p-6 space-y-6 shadow-2xl border-t-4 border-t-amber-500 animate-in fade-in zoom-in-95 duration-200">
-        <div class="flex items-center gap-3 text-amber-400">
-          <i class="pi pi-exclamation-triangle text-2xl"></i>
-          <h3 class="text-lg font-bold text-[#f0f6fc]">Opmerking over dit project</h3>
-        </div>
-        <p class="text-sm text-[#c9d1d9] leading-relaxed">
-          Leuk dat je een kijkje neemt! Dit is een vroeg project uit mijn eerste studiejaar. Het werkt prima, maar verwacht qua design nog geen hoogstandje.
-        </p>
-        <div class="flex justify-end gap-3 pt-2 border-t border-[#30363d]">
-          <Button label="Annuleren" severity="secondary" outlined size="small" @click="showWarningModal = false" class="!px-4" />
-          <Button label="Doorgaan naar Demo" severity="success" size="small" @click="confirmDemo" class="!px-4" />
         </div>
       </div>
     </div>

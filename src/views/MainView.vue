@@ -15,7 +15,7 @@ const chapters = [
     id: 1,
     title: 'De Start',
     period: '8 - 12 jaar',
-    story: 'Mijn interesse in techniek begon al vroeg. Ik was altijd nieuwsgierig naar hoe dingen werten. Met mijn eerste Micro-Bit begon ik echt te begrijpen hoe je met code simpele dingen kon aansturen.',
+    story: 'Mijn interesse in techniek begon al vroeg. Ik was altijd nieuwsgierig naar hoe dingen werkten. Met mijn eerste Micro-Bit begon ik echt te begrijpen hoe je met code simpele dingen kon aansturen.',
     icon: 'pi-power-off'
   },
   {
@@ -29,7 +29,7 @@ const chapters = [
     id: 3,
     title: 'Projecten en Experimenten',
     period: 'Middelbare School',
-    story: 'Op de middelbare school werden mijn projecten iets serieuzer. Ik begon met het automatiseren van games Het bouwen van tools voor schoolsystemen. Ook probeerde ik grotere systemen te bouwen, waar ik veel van heb geleerd.',
+    story: 'Op de middelbare school werden mijn projecten iets serieuzer. Ik begon met het automatiseren van games het bouwen van tools voor schoolsystemen. Ook probeerde ik grotere systemen te bouwen, waar ik veel van heb geleerd.',
     icon: 'pi-git-commit'
   },
   {
@@ -132,7 +132,7 @@ const scrollToSection = (id: string) => {
           </div>
           <div class="space-y-4">
             <p class="text-xl md:text-3xl text-[#c9d1d9] leading-tight max-w-2xl font-medium">
-              Ik ben een 18-jarige student met een passie voor techniek and code.
+              Ik ben een 18-jarige student met een passie voor techniek en code.
             </p>
             <p class="text-lg text-[#8b949e] leading-relaxed max-w-2xl">
               Ik studeer aan de Hogeschool Leiden en ben elke dag bezig om nieuwe dingen te leren. Of het nu gaat om het schrijven van scripts of het ontdekken van hoe systemen werken: ik duik er graag in.
@@ -140,7 +140,7 @@ const scrollToSection = (id: string) => {
           </div>
           <div class="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
             <Button label="Mijn Journey" icon="pi pi-map" severity="success" size="large" @click="scrollToSection('journey')" class="!px-8 !py-4" />
-            <Button label="Contact" icon="pi-envelope" severity="secondary" size="large" outlined @click="scrollToSection('contact')" class="!px-8 !py-4" />
+            <Button label="Contact" icon="pi pi-envelope" severity="secondary" size="large" outlined @click="scrollToSection('contact')" class="!px-8 !py-4" />
           </div>
         </div>
       </div>
@@ -178,25 +178,38 @@ const scrollToSection = (id: string) => {
               </div>
 
               <div :class="['pl-16 md:pl-0', index % 2 === 0 ? 'md:order-2' : 'md:order-1']">
+
                 <div :class="['hidden sm:grid gap-4', getProjectsByChapter(chapter.id).length === 1 ? 'grid-cols-1' : 'grid-cols-2']">
                   <div
                       v-for="project in getProjectsByChapter(chapter.id)"
                       :key="project.id"
                       @click="goToProject(project.id)"
                       :class="[
-                       'bg-[#161b22] border border-[#30363d] p-5 rounded-2xl hover:border-[#8b949e] hover:bg-[#1c2128] transition-all cursor-pointer group/card active:scale-[0.98] relative overflow-hidden min-h-[200px]',
+                       'bg-[#161b22] border border-[#30363d] p-5 rounded-2xl hover:border-[#8b949e] hover:bg-[#1c2128] transition-all cursor-pointer group/card active:scale-[0.98] relative overflow-hidden flex flex-col justify-between min-h-[220px]',
                        getProjectsByChapter(chapter.id).length === 1 ? 'col-span-2' : ''
                      ]"
                   >
-                    <div class="flex items-start gap-4 mb-3">
-                      <h4 class="text-xl font-bold text-[#58a6ff] group-hover/card:underline flex-grow min-w-0">
+                    <div class="space-y-2 mb-3">
+                      <h4 class="text-xl font-bold text-[#58a6ff] group-hover/card:underline">
                         <i class="pi pi-book text-sm opacity-50 mr-2"></i>
                         {{ project.title }}
                       </h4>
-                      <span class="text-[10px] font-mono border border-[#30363d] px-3 py-1 rounded text-[#8b949e] shrink-0 bg-[#0d1117] uppercase tracking-wider">{{ project.type }}</span>
+                      <div class="flex flex-wrap items-center gap-1.5">
+                          <span v-if="project.liveDemoUrl" class="text-[10px] font-mono border border-emerald-500/30 px-2 py-0.5 rounded text-emerald-400 bg-emerald-500/10 uppercase tracking-wider">
+                            Live Demo
+                          </span>
+                        <span v-if="project.opensource" class="text-[10px] font-mono border border-blue-500/30 px-2 py-0.5 rounded text-blue-400 bg-blue-500/10 uppercase tracking-wider">
+                            Open Source
+                          </span>
+                        <span class="text-[10px] font-mono border border-[#30363d] px-2.5 py-0.5 rounded text-[#8b949e] bg-[#0d1117] uppercase tracking-wider">
+                            {{ project.type }}
+                          </span>
+                      </div>
                     </div>
-                    <p class="text-sm text-[#8b949e] line-clamp-2 mb-4 leading-relaxed">{{ project.shortDescription }}</p>
-                    <div class="flex flex-col gap-2 text-[11px] font-mono text-[#8b949e]">
+
+                    <p class="text-sm text-[#8b949e] line-clamp-2 mb-4 leading-relaxed flex-grow">{{ project.shortDescription }}</p>
+
+                    <div class="flex flex-col gap-2 text-[11px] font-mono text-[#8b949e] pt-2">
                         <span class="flex items-center gap-2">
                           <span :class="['w-3 h-3 rounded-full', getLanguageColor(project.language)]"></span>
                           {{ project.language }}
@@ -204,9 +217,6 @@ const scrollToSection = (id: string) => {
                       <div class="flex flex-wrap gap-2">
                           <span v-for="skill in project.skills.slice(0, 3)" :key="skill" class="bg-[#21262d] text-[#c9d1d9] px-3 py-1 rounded border border-[#30363d]">
                             {{ skill }}
-                          </span>
-                        <span v-if="project.liveDemoUrl" class="bg-emerald-500 text-[#0d1117] font-bold px-2.5 py-1 rounded border border-emerald-400 flex items-center gap-1 shadow-lg shadow-emerald-500/10">
-                            <i class="pi pi-external-link text-[9px]"></i> Live Demo
                           </span>
                       </div>
                     </div>
@@ -218,17 +228,29 @@ const scrollToSection = (id: string) => {
                       v-for="project in getProjectsByChapter(chapter.id)"
                       :key="project.id"
                       @click="goToProject(project.id)"
-                      class="min-w-[280px] bg-[#161b22] border border-[#30363d] p-6 rounded-2xl active:bg-[#1c2128] snap-start min-h-[180px]"
+                      class="min-w-[280px] bg-[#161b22] border border-[#30363d] p-6 rounded-2xl active:bg-[#1c2128] snap-start flex flex-col justify-between min-h-[200px]"
                   >
-                    <div class="flex items-start gap-4 mb-3">
-                      <h4 class="text-base font-bold text-[#58a6ff] flex-grow min-w-0">
+                    <div class="space-y-2 mb-3">
+                      <h4 class="text-base font-bold text-[#58a6ff]">
                         <i class="pi pi-book text-sm opacity-50 mr-2"></i>
                         {{ project.title }}
                       </h4>
-                      <span class="text-[10px] font-mono border border-[#30363d] px-3 py-1 rounded text-[#8b949e] shrink-0 bg-[#0d1117] uppercase tracking-wider">{{ project.type }}</span>
+                      <div class="flex flex-wrap items-center gap-1.5">
+                          <span v-if="project.liveDemoUrl" class="text-[10px] font-mono border border-emerald-500/30 px-2 py-0.5 rounded text-emerald-400 bg-emerald-500/10 uppercase tracking-wider">
+                            Live Demo
+                          </span>
+                        <span v-if="project.opensource" class="text-[10px] font-mono border border-blue-500/30 px-2 py-0.5 rounded text-blue-400 bg-blue-500/10 uppercase tracking-wider">
+                            Open Source
+                          </span>
+                        <span class="text-[10px] font-mono border border-[#30363d] px-2 py-0.5 rounded text-[#8b949e] bg-[#0d1117] uppercase tracking-wider">
+                            {{ project.type }}
+                          </span>
+                      </div>
                     </div>
-                    <p class="text-sm text-[#8b949e] line-clamp-2 mb-4 leading-relaxed">{{ project.shortDescription }}</p>
-                    <div class="flex flex-col gap-2 text-[11px] font-mono text-[#8b949e]">
+
+                    <p class="text-sm text-[#8b949e] line-clamp-2 mb-4 leading-relaxed flex-grow">{{ project.shortDescription }}</p>
+
+                    <div class="flex flex-col gap-2 text-[11px] font-mono text-[#8b949e] pt-2">
                         <span class="flex items-center gap-2">
                           <span :class="['w-2.5 h-2.5 rounded-full', getLanguageColor(project.language)]"></span>
                           {{ project.language }}
@@ -237,13 +259,11 @@ const scrollToSection = (id: string) => {
                           <span v-for="skill in project.skills.slice(0, 3)" :key="skill" class="bg-[#21262d] text-[#c9d1d9] px-3 py-1 rounded border border-[#30363d]">
                             {{ skill }}
                           </span>
-                        <span v-if="project.liveDemoUrl" class="bg-emerald-500 text-[#0d1117] font-bold px-2.5 py-1 rounded border border-emerald-400 flex items-center gap-1 shadow-lg">
-                            <i class="pi pi-external-link text-[9px]"></i> Live Demo
-                          </span>
                       </div>
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
@@ -260,7 +280,7 @@ const scrollToSection = (id: string) => {
       <div class="max-w-5xl mx-auto">
         <div class="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div v-for="category in skillCategories" :key="category.name" class="bg-[#161b22] border border-[#30363d] p-6 rounded-2xl space-y-6 shadow-xl">
-            <h3 class="text-[#f0f6fc] font-bold text-sm uppercase tracking-widest text-emerald-400 border-b border-[#30363d] pb-2">{{ category.name }}</h3>
+            <h3 class="text-emerald-400 font-bold text-sm uppercase tracking-widest border-b border-[#30363d] pb-2">{{ category.name }}</h3>
             <div class="space-y-4">
               <div v-for="skill in category.skills" :key="skill.name" class="flex items-center gap-4 group">
                 <i :class="['pi', skill.icon, skill.color, 'text-xl group-hover:scale-110 transition-transform']"></i>
@@ -272,7 +292,7 @@ const scrollToSection = (id: string) => {
 
         <div class="sm:hidden -ml-4 pl-4 flex gap-4 overflow-x-auto pb-4 no-scrollbar snap-x relative">
           <div v-for="category in skillCategories" :key="category.name" class="min-w-[280px] bg-[#161b22] border border-[#30363d] p-6 rounded-2xl space-y-6 shadow-xl snap-start">
-            <h3 class="text-[#f0f6fc] font-bold text-sm uppercase tracking-widest text-emerald-400 border-b border-[#30363d] pb-2">{{ category.name }}</h3>
+            <h3 class="text-emerald-400 font-bold text-sm uppercase tracking-widest border-b border-[#30363d] pb-2">{{ category.name }}</h3>
             <div class="space-y-4">
               <div v-for="skill in category.skills" :key="skill.name" class="flex items-center gap-4 group">
                 <i :class="['pi', skill.icon, skill.color, 'text-xl group-hover:scale-110 transition-transform']"></i>
