@@ -6,7 +6,6 @@ import profielfoto from '../assets/profielfoto.jpeg'
 
 const router = useRouter()
 
-// Centralized URLs
 const linkedinUrl = 'https://www.linkedin.com/in/jasper-de-waal-83519a2b7/'
 const githubUrl = 'https://github.com/Jappiesausje'
 const emailAddress = 'contact@jasperdewaal-dev.nl'
@@ -16,7 +15,7 @@ const chapters = [
     id: 1,
     title: 'De Start',
     period: '8 - 12 jaar',
-    story: 'Mijn interesse in techniek begon al vroeg. Ik was altijd nieuwsgierig naar hoe dingen werkten. Met mijn eerste Micro-Bit begon ik echt te begrijpen hoe je met code simpele dingen kon aansturen.',
+    story: 'Mijn interesse in techniek begon al vroeg. Ik was altijd nieuwsgierig naar hoe dingen werten. Met mijn eerste Micro-Bit begon ik echt te begrijpen hoe je met code simpele dingen kon aansturen.',
     icon: 'pi-power-off'
   },
   {
@@ -30,7 +29,7 @@ const chapters = [
     id: 3,
     title: 'Projecten en Experimenten',
     period: 'Middelbare School',
-    story: 'Op de middelbare school werden mijn projecten iets serieuzer. Ik begon met het automatiseren van games en het bouwen van tools voor schoolsystemen. Ook probeerde ik grotere systemen te bouwen, waar ik veel van heb geleerd.',
+    story: 'Op de middelbare school werden mijn projecten iets serieuzer. Ik begon met het automatiseren van games Het bouwen van tools voor schoolsystemen. Ook probeerde ik grotere systemen te bouwen, waar ik veel van heb geleerd.',
     icon: 'pi-git-commit'
   },
   {
@@ -115,7 +114,6 @@ const scrollToSection = (id: string) => {
 
 <template>
   <div class="space-y-20 pb-24">
-    <!-- Home Section -->
     <section id="home" class="min-h-[85vh] flex flex-col items-center justify-center py-12 px-6">
       <div class="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
         <div class="relative group shrink-0 animate-in fade-in zoom-in duration-700">
@@ -134,7 +132,7 @@ const scrollToSection = (id: string) => {
           </div>
           <div class="space-y-4">
             <p class="text-xl md:text-3xl text-[#c9d1d9] leading-tight max-w-2xl font-medium">
-              Ik ben een 18-jarige student met een passie voor techniek en code.
+              Ik ben een 18-jarige student met een passie voor techniek and code.
             </p>
             <p class="text-lg text-[#8b949e] leading-relaxed max-w-2xl">
               Ik studeer aan de Hogeschool Leiden en ben elke dag bezig om nieuwe dingen te leren. Of het nu gaat om het schrijven van scripts of het ontdekken van hoe systemen werken: ik duik er graag in.
@@ -148,7 +146,6 @@ const scrollToSection = (id: string) => {
       </div>
     </section>
 
-    <!-- Journey Section -->
     <section id="journey" class="py-16 border-t border-[#30363d] px-6">
       <header class="mb-16 text-center space-y-4">
         <h2 class="text-4xl md:text-5xl font-bold text-[#f0f6fc]">Mijn Journey</h2>
@@ -170,82 +167,83 @@ const scrollToSection = (id: string) => {
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24">
-              <!-- Chapter Text Block -->
               <div :class="['pl-16 md:pl-0 space-y-4', index % 2 === 0 ? 'md:text-right md:order-1' : 'md:text-left md:order-2']">
-                 <div class="inline-block px-4 py-1 rounded-full bg-[#161b22] border border-[#30363d] text-emerald-400 font-mono text-xs mb-1 uppercase tracking-widest">
-                   {{ chapter.period }}
-                 </div>
-                 <h3 class="text-3xl md:text-4xl font-bold text-[#f0f6fc] tracking-tight group-hover:text-emerald-400 transition-colors">{{ chapter.title }}</h3>
-                 <p class="text-[#8b949e] leading-relaxed text-base md:text-lg">
-                   {{ chapter.story }}
-                 </p>
+                <div class="inline-block px-4 py-1 rounded-full bg-[#161b22] border border-[#30363d] text-emerald-400 font-mono text-xs mb-1 uppercase tracking-widest">
+                  {{ chapter.period }}
+                </div>
+                <h3 class="text-3xl md:text-4xl font-bold text-[#f0f6fc] tracking-tight group-hover:text-emerald-400 transition-colors">{{ chapter.title }}</h3>
+                <p class="text-[#8b949e] leading-relaxed text-base md:text-lg">
+                  {{ chapter.story }}
+                </p>
               </div>
 
-              <!-- Project Cards Block -->
               <div :class="['pl-16 md:pl-0', index % 2 === 0 ? 'md:order-2' : 'md:order-1']">
-                 <!-- Desktop: 2-column grid -->
-                 <div :class="['hidden sm:grid gap-4', getProjectsByChapter(chapter.id).length === 1 ? 'grid-cols-1' : 'grid-cols-2']">
-                   <div
-                     v-for="project in getProjectsByChapter(chapter.id)"
-                     :key="project.id"
-                     @click="goToProject(project.id)"
-                     :class="[
+                <div :class="['hidden sm:grid gap-4', getProjectsByChapter(chapter.id).length === 1 ? 'grid-cols-1' : 'grid-cols-2']">
+                  <div
+                      v-for="project in getProjectsByChapter(chapter.id)"
+                      :key="project.id"
+                      @click="goToProject(project.id)"
+                      :class="[
                        'bg-[#161b22] border border-[#30363d] p-5 rounded-2xl hover:border-[#8b949e] hover:bg-[#1c2128] transition-all cursor-pointer group/card active:scale-[0.98] relative overflow-hidden min-h-[200px]',
                        getProjectsByChapter(chapter.id).length === 1 ? 'col-span-2' : ''
                      ]"
-                   >
-                      <div class="flex items-start gap-4 mb-3">
-                        <h4 class="text-xl font-bold text-[#58a6ff] group-hover/card:underline flex-grow min-w-0">
-                          <i class="pi pi-book text-sm opacity-50 mr-2"></i>
-                          {{ project.title }}
-                        </h4>
-                        <span class="text-[10px] font-mono border border-[#30363d] px-3 py-1 rounded text-[#8b949e] shrink-0 bg-[#0d1117] uppercase tracking-wider">{{ project.type }}</span>
-                      </div>
-                      <p class="text-sm text-[#8b949e] line-clamp-2 mb-4 leading-relaxed">{{ project.shortDescription }}</p>
-                      <div class="flex flex-col gap-2 text-[11px] font-mono text-[#8b949e]">
+                  >
+                    <div class="flex items-start gap-4 mb-3">
+                      <h4 class="text-xl font-bold text-[#58a6ff] group-hover/card:underline flex-grow min-w-0">
+                        <i class="pi pi-book text-sm opacity-50 mr-2"></i>
+                        {{ project.title }}
+                      </h4>
+                      <span class="text-[10px] font-mono border border-[#30363d] px-3 py-1 rounded text-[#8b949e] shrink-0 bg-[#0d1117] uppercase tracking-wider">{{ project.type }}</span>
+                    </div>
+                    <p class="text-sm text-[#8b949e] line-clamp-2 mb-4 leading-relaxed">{{ project.shortDescription }}</p>
+                    <div class="flex flex-col gap-2 text-[11px] font-mono text-[#8b949e]">
                         <span class="flex items-center gap-2">
                           <span :class="['w-3 h-3 rounded-full', getLanguageColor(project.language)]"></span>
                           {{ project.language }}
                         </span>
-                        <div class="flex flex-wrap gap-2">
+                      <div class="flex flex-wrap gap-2">
                           <span v-for="skill in project.skills.slice(0, 3)" :key="skill" class="bg-[#21262d] text-[#c9d1d9] px-3 py-1 rounded border border-[#30363d]">
                             {{ skill }}
                           </span>
-                        </div>
+                        <span v-if="project.liveDemoUrl" class="bg-emerald-500 text-[#0d1117] font-bold px-2.5 py-1 rounded border border-emerald-400 flex items-center gap-1 shadow-lg shadow-emerald-500/10">
+                            <i class="pi pi-external-link text-[9px]"></i> Live Demo
+                          </span>
                       </div>
-                   </div>
-                 </div>
-                 <!-- Mobile: Horizontal Swipeable List with visual cue -->
-                 <div class="sm:hidden -ml-4 pl-4 flex gap-4 overflow-x-auto pb-4 no-scrollbar snap-x relative">
-                   <div
-                     v-for="project in getProjectsByChapter(chapter.id)"
-                     :key="project.id"
-                     @click="goToProject(project.id)"
-                     class="min-w-[280px] bg-[#161b22] border border-[#30363d] p-6 rounded-2xl active:bg-[#1c2128] snap-start min-h-[180px]"
-                   >
-                      <div class="flex items-start gap-4 mb-3">
-                        <h4 class="text-base font-bold text-[#58a6ff] flex-grow min-w-0">
-                          <i class="pi pi-book text-sm opacity-50 mr-2"></i>
-                          {{ project.title }}
-                        </h4>
-                        <span class="text-[10px] font-mono border border-[#30363d] px-3 py-1 rounded text-[#8b949e] shrink-0 bg-[#0d1117] uppercase tracking-wider">{{ project.type }}</span>
-                      </div>
-                      <p class="text-sm text-[#8b949e] line-clamp-2 mb-4 leading-relaxed">{{ project.shortDescription }}</p>
-                      <div class="flex flex-col gap-2 text-[11px] font-mono text-[#8b949e]">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sm:hidden -ml-4 pl-4 flex gap-4 overflow-x-auto pb-4 no-scrollbar snap-x relative">
+                  <div
+                      v-for="project in getProjectsByChapter(chapter.id)"
+                      :key="project.id"
+                      @click="goToProject(project.id)"
+                      class="min-w-[280px] bg-[#161b22] border border-[#30363d] p-6 rounded-2xl active:bg-[#1c2128] snap-start min-h-[180px]"
+                  >
+                    <div class="flex items-start gap-4 mb-3">
+                      <h4 class="text-base font-bold text-[#58a6ff] flex-grow min-w-0">
+                        <i class="pi pi-book text-sm opacity-50 mr-2"></i>
+                        {{ project.title }}
+                      </h4>
+                      <span class="text-[10px] font-mono border border-[#30363d] px-3 py-1 rounded text-[#8b949e] shrink-0 bg-[#0d1117] uppercase tracking-wider">{{ project.type }}</span>
+                    </div>
+                    <p class="text-sm text-[#8b949e] line-clamp-2 mb-4 leading-relaxed">{{ project.shortDescription }}</p>
+                    <div class="flex flex-col gap-2 text-[11px] font-mono text-[#8b949e]">
                         <span class="flex items-center gap-2">
                           <span :class="['w-2.5 h-2.5 rounded-full', getLanguageColor(project.language)]"></span>
                           {{ project.language }}
                         </span>
-                        <div class="flex flex-wrap gap-2">
+                      <div class="flex flex-wrap gap-2">
                           <span v-for="skill in project.skills.slice(0, 3)" :key="skill" class="bg-[#21262d] text-[#c9d1d9] px-3 py-1 rounded border border-[#30363d]">
                             {{ skill }}
                           </span>
-                        </div>
+                        <span v-if="project.liveDemoUrl" class="bg-emerald-500 text-[#0d1117] font-bold px-2.5 py-1 rounded border border-emerald-400 flex items-center gap-1 shadow-lg">
+                            <i class="pi pi-external-link text-[9px]"></i> Live Demo
+                          </span>
                       </div>
-                   </div>
-                   <!-- Scroll indicator gradient -->
-                   <!-- Removed the scroll indicator gradient as per user request -->
-                 </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -253,7 +251,6 @@ const scrollToSection = (id: string) => {
       </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="py-16 border-t border-[#30363d] px-6">
       <header class="mb-16 text-center space-y-4">
         <h2 class="text-4xl md:text-5xl font-bold text-[#f0f6fc]">Mijn Skills</h2>
@@ -261,7 +258,6 @@ const scrollToSection = (id: string) => {
       </header>
 
       <div class="max-w-5xl mx-auto">
-        <!-- Desktop: Grid layout -->
         <div class="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div v-for="category in skillCategories" :key="category.name" class="bg-[#161b22] border border-[#30363d] p-6 rounded-2xl space-y-6 shadow-xl">
             <h3 class="text-[#f0f6fc] font-bold text-sm uppercase tracking-widest text-emerald-400 border-b border-[#30363d] pb-2">{{ category.name }}</h3>
@@ -274,13 +270,8 @@ const scrollToSection = (id: string) => {
           </div>
         </div>
 
-        <!-- Mobile: Horizontal Swipeable List with visual cue -->
         <div class="sm:hidden -ml-4 pl-4 flex gap-4 overflow-x-auto pb-4 no-scrollbar snap-x relative">
-          <div
-            v-for="category in skillCategories"
-            :key="category.name"
-            class="min-w-[280px] bg-[#161b22] border border-[#30363d] p-6 rounded-2xl space-y-6 shadow-xl snap-start"
-          >
+          <div v-for="category in skillCategories" :key="category.name" class="min-w-[280px] bg-[#161b22] border border-[#30363d] p-6 rounded-2xl space-y-6 shadow-xl snap-start">
             <h3 class="text-[#f0f6fc] font-bold text-sm uppercase tracking-widest text-emerald-400 border-b border-[#30363d] pb-2">{{ category.name }}</h3>
             <div class="space-y-4">
               <div v-for="skill in category.skills" :key="skill.name" class="flex items-center gap-4 group">
@@ -289,13 +280,10 @@ const scrollToSection = (id: string) => {
               </div>
             </div>
           </div>
-          <!-- Scroll indicator gradient -->
-          <!-- Removed the scroll indicator gradient as per user request -->
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-16 border-t border-[#30363d] px-6">
       <div class="bg-[#161b22] border border-[#30363d] rounded-3xl p-12 md:p-24 text-center space-y-8 max-w-5xl mx-auto relative overflow-hidden group">
         <div class="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>

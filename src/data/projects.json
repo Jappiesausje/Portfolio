@@ -28,7 +28,7 @@
     "skills": ["Python", "API"],
     "opensource": true,
     "shortDescription": "Een simpele tool die probeerde te kijken of willekeurige codes geldig waren als giftcard.",
-    "longDescription": "Vroeger dacht ik dat het mogelijk was om giftcards te genereren. Ik maakte een tool die een random string maakte en deze naar de API van Amazon of cadeaubon.nl stuurde om te checken of de code geldig was. Hoewel het natuurlijk niet echt werkte, was het een goede manier om te leren werken met API's en random strings.",
+    "longDescription": "Vroeger dacht ik dat het mogelijk was om giftcards te genereren. Ik maakte een tool die een random string maakte en deze naar de API of Amazon of cadeaubon.nl stuurde om te checken of de code geldig was. Hoewel het natuurlijk niet echt werkte, was het een goede manier om te leren werken met API's en random strings.",
     "learningOutcomes": [
       "Werken met externe API's in Python",
       "Genereren van willekeurige strings",
@@ -50,7 +50,7 @@
     "longDescription": "In GTA was er een hack voor het casino waarbij je gegarandeerd de jackpot kreeg, maar je moest dit steeds handmatig aan- en uitzetten om niet geband te worden. Dit was veel werk, dus ik schreef een Python tool die dit volledig automatisch voor me deed. Ik kon invullen hoeveel geld ik wilde en de tool deed de rest.",
     "learningOutcomes": [
       "Macro's schrijven met Python",
-      "Automatisering van handmatige taken",
+      "Automatisering van handmatige tasks",
       "Input simulatie in Windows"
     ],
     "githubUrl": "",
@@ -85,7 +85,7 @@
     "skills": ["Pygame", "Logica"],
     "opensource": true,
     "shortDescription": "Klassieke spelletjes gebouwd met de Pygame library.",
-    "longDescription": "Ik heb Snake en Pong nagebouwd aan de hand van tutorials om te leren werken met Pygame, een bekende game maker library voor Python. Het was interessant om te zien hoe game-logica werkt, maar ik merkte hierdoor ook dat ik later niet echt de game-dev kant op wil gaan; ik vond de projecten met Pygame niet heel leuk.",
+    "longDescription": "Ik heb Snake en Pong nagebouwd aan de hand van tutorials om te leren werken met Pygame, een bekende game maker library voor Python. Het was interessant om te zien hoe game-logica werkt, maar ik merkte hierdoor ook dat ik later niet echt de game-dev kant op wilt gaan; ik vond de projecten met Pygame niet heel leuk.",
     "learningOutcomes": [
       "Basis van de Pygame library",
       "Game-logica en loops begrijpen",
@@ -215,12 +215,12 @@
     "year": "2024",
     "type": "School",
     "language": "Python",
-    "skills": ["Docker", "GitLab CI/CD", "AI"],
+    "skills": ["Docker", "GitLab CI/CD", "algoritmes"],
     "opensource": true,
     "shortDescription": "Een data pipeline die YouTube audio transcribeert en sentiment analyseert.",
     "longDescription": "Dit schoolproject haalt data van YouTube, zet de audio om naar tekst met AI (Whisper) en kijkt of de reacties positief zijn. Het draait automatisch in Docker via een CI/CD workflow in GitLab.",
     "learningOutcomes": [
-      "Werken met Docker en CI/CD workflows",
+      "Werken met Docker van CI/CD workflows",
       "AI audio-transcritpie integreren",
       "Sentiment analyse uitvoeren op tekstdata"
     ],
@@ -244,16 +244,17 @@
       "REST API's bouwen en gebruiken"
     ],
     "githubUrl": "",
-    "images": []
+    "images": [],
+    "liveDemoUrl": "https://webshop.jasperdewaal-dev.nl/"
   },
   {
     "id": "embedded-maze",
-    "title": "Raspberry Pi Doolhof",
+    "title": "Raspberry Pi doolhof met blog",
     "chapter": 4,
     "year": "2024",
     "type": "School",
     "language": "Python",
-    "skills": ["Embedded", "Raspberry Pi", "Hardware"],
+    "skills": ["Raspberry Pi", "Hardware"],
     "opensource": false,
     "shortDescription": "Een doolhof game bestuurd via fysieke knoppen op een Raspberry Pi.",
     "longDescription": "Voor het vak Embedded Systems bouwde ik een doolhof game. In plaats van een toetsenbord gebruik je echte fysieke knoppen aangesloten op de Raspberry Pi. Het was interessant om te zien hoe code direct invloed heeft op hardware, en dit project heb ik volledig in Python geschreven.",
@@ -263,7 +264,8 @@
       "Remote management via SSH"
     ],
     "githubUrl": "",
-    "images": []
+    "images": [],
+    "liveDemoUrl": "https://blogsite.jasperdewaal-dev.nl/"
   },
   {
     "id": "vue-ci-cd",

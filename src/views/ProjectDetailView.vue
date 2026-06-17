@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import projectsData from '../data/projects.json'
 import Button from 'primevue/button'
@@ -16,6 +16,7 @@ interface Project {
   learningOutcomes: string[]
   githubUrl: string
   images: string[]
+  liveDemoUrl?: string
 }
 
 const props = defineProps<{
@@ -23,6 +24,26 @@ const props = defineProps<{
 }>()
 
 const project = computed(() => (projectsData as Project[]).find(p => p.id === props.id))
+
+// State voor de waarschuwingspopup
+const showWarningModal = ref(false)
+
+// Intercept-functie voor de Live Demo knop
+const handleDemoClick = () => {
+  if (project.value?.id === 'embedded-maze') {
+    showWarningModal.value = true
+  } else if (project.value?.liveDemoUrl) {
+    window.open(project.value.liveDemoUrl, '_blank', 'noopener,noreferrer')
+  }
+}
+
+// Uitvoeren van redirect na akkoord in de popup
+const confirmDemo = () => {
+  if (project.value?.liveDemoUrl) {
+    window.open(project.value.liveDemoUrl, '_blank', 'noopener,noreferrer')
+  }
+  showWarningModal.value = false
+}
 
 const getLanguageColor = (lang: string) => {
   switch (lang) {
@@ -60,7 +81,6 @@ const otherTechnologies = computed(() => {
 
 <template>
   <div v-if="project" class="max-w-6xl mx-auto p-4 md:p-8 space-y-8 animate-in fade-in duration-500">
-    <!-- Breadcrumbs -->
     <div class="flex items-center gap-2 text-sm font-mono mb-4">
       <RouterLink to="/" class="text-[#58a6ff] hover:underline flex items-center gap-1">
         <i class="pi pi-arrow-left text-[10px]"></i> Home
@@ -69,10 +89,8 @@ const otherTechnologies = computed(() => {
       <span class="text-[#f0f6fc] font-bold">{{ project.title }}</span>
     </div>
 
-    <!-- Main Content Layout -->
     <div class="flex flex-col lg:flex-row gap-8">
 
-      <!-- Left Column: README Style -->
       <div class="flex-grow space-y-8">
         <div class="bg-[#0d1117] border border-[#30363d] rounded-xl overflow-hidden shadow-2xl">
           <div class="bg-[#161b22] border-b border-[#30363d] px-6 py-3 flex items-center justify-between">
@@ -84,9 +102,10 @@ const otherTechnologies = computed(() => {
 
           <div class="p-6 md:p-10 space-y-10">
             <section>
-              <h1 class="text-3xl md:text-5xl font-black text-[#f0f6fc] mb-6 border-b border-[#30363d] pb-4 tracking-tight">
+              <h1 class="text-3xl md:text-5xl font-black text-[#f0f6fc] mb-4 border-b border-[#30363d] pb-4 tracking-tight">
                 {{ project.title }}
               </h1>
+
               <p class="text-[#c9d1d9] leading-relaxed text-lg md:text-xl">
                 {{ project.longDescription }}
               </p>
@@ -114,7 +133,6 @@ const otherTechnologies = computed(() => {
         </div>
       </div>
 
-      <!-- Right Column: Sidebar -->
       <div class="lg:w-80 shrink-0 space-y-6">
         <div class="bg-[#161b22] border border-[#30363d] rounded-xl p-6 space-y-6 shadow-xl">
           <div class="space-y-4">
@@ -133,6 +151,14 @@ const otherTechnologies = computed(() => {
           <div class="pt-6 border-t border-[#30363d] space-y-4">
             <h3 class="font-bold text-sm uppercase tracking-widest text-[#8b949e]">Links</h3>
             <div class="space-y-3">
+              <button v-if="project.liveDemoUrl" @click="handleDemoClick" class="w-full flex items-center justify-between p-3 rounded-lg bg-emerald-500 text-[#0d1117] border border-emerald-400 hover:bg-emerald-400 transition-all group font-bold shadow-xl shadow-emerald-500/10 cursor-pointer text-left">
+                <div class="flex items-center gap-3">
+                  <i class="pi pi-external-link text-lg"></i>
+                  <span class="text-sm font-bold">Bekijk Live Demo</span>
+                </div>
+                <i class="pi pi-arrow-up-right text-xs"></i>
+              </button>
+
               <a v-if="project.githubUrl" :href="project.githubUrl" target="_blank" class="flex items-center justify-between p-3 rounded-lg bg-[#21262d] border border-[#30363d] text-[#f0f6fc] hover:border-emerald-500/50 hover:text-emerald-400 transition-all group">
                 <div class="flex items-center gap-3">
                   <i class="pi pi-github text-lg"></i>
@@ -140,7 +166,8 @@ const otherTechnologies = computed(() => {
                 </div>
                 <i class="pi pi-external-link text-xs opacity-50 group-hover:opacity-100"></i>
               </a>
-              <div v-else class="flex items-center gap-3 p-3 rounded-lg bg-[#0d1117] border border-[#30363d] text-[#8b949e] cursor-not-allowed opacity-60">
+
+              <div v-if="!project.liveDemoUrl && !project.githubUrl" class="flex items-center gap-3 p-3 rounded-lg bg-[#0d1117] border border-[#30363d] text-[#8b949e] cursor-not-allowed opacity-60">
                 <i class="pi pi-lock text-sm"></i>
                 <span class="text-sm font-semibold">Private Code</span>
               </div>
@@ -198,6 +225,22 @@ const otherTechnologies = computed(() => {
               </span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="showWarningModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm transition-all">
+      <div class="bg-[#161b22] border border-[#30363d] rounded-2xl max-w-md w-full p-6 space-y-6 shadow-2xl border-t-4 border-t-amber-500 animate-in fade-in zoom-in-95 duration-200">
+        <div class="flex items-center gap-3 text-amber-400">
+          <i class="pi pi-exclamation-triangle text-2xl"></i>
+          <h3 class="text-lg font-bold text-[#f0f6fc]">Opmerking over dit project</h3>
+        </div>
+        <p class="text-sm text-[#c9d1d9] leading-relaxed">
+          Leuk dat je een kijkje neemt! Dit is een vroeg project uit mijn eerste studiejaar. Het werkt prima, maar verwacht qua design nog geen hoogstandje.
+        </p>
+        <div class="flex justify-end gap-3 pt-2 border-t border-[#30363d]">
+          <Button label="Annuleren" severity="secondary" outlined size="small" @click="showWarningModal = false" class="!px-4" />
+          <Button label="Doorgaan naar Demo" severity="success" size="small" @click="confirmDemo" class="!px-4" />
         </div>
       </div>
     </div>
