@@ -239,7 +239,7 @@
     "type": "School",
     "language": "Java",
     "skills": ["Spring Boot", "REST API", "Angular"],
-    "opensource": true,
+    "opensource": "",
     "shortDescription": "Een complete webshop om te leren hoe backend en frontend samenwerken.",
     "longDescription": "Voor dit schoolproject bouwden we een webshop met Spring Boot (Java) and Angular. Het was mijn eerste ervaring met een groot full-stack systeem waarin alles van database tot de frontend samenzat.",
     "learningOutcomes": [
