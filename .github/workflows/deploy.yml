@@ -59,7 +59,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ~/portfolio
+            cd /root/portfolio
             docker compose pull
             docker compose up -d
             docker image prune -f
