@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository_owner }}/${{ github.event.repository.name }}
+  images: ${{ env.REGISTRY }}/${{ github.repository | downcase }}
 
 jobs:
   # 1. De test job: Linting en Image Scan
