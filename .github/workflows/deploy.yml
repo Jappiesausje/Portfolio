@@ -20,7 +20,8 @@ jobs:
       - name: Install dependencies & Lint
         run: |
           npm install --legacy-peer-deps
-          npm run lint
+          # We voegen --debug toe om de fout in de pipeline te forceren
+          npx eslint . --debug
 
       - name: Build image for testing
         run: docker build -t my-app-test .
